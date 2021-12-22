@@ -15,6 +15,8 @@ class Config:
     Config object for the scrummy application.
     """
     home: Path = Path('~/documents/scrummy').expanduser()
+    todo_filename: str = 'todo.md'
+    max_line_length: int = 80
 
     def __getitem__(self, key: str) -> Any:
         return getattr(self, key)
@@ -24,6 +26,10 @@ class Config:
             setattr(self, key, value)
         else:
             raise KeyError(f'{key} is not a valid configuration key.')
+
+    @property
+    def todo_file(self) -> str:
+        return os.path.join(self.home, self.todo_filename)
 
 
 def parse_line(line: str) -> Tuple[str, Any] | None:

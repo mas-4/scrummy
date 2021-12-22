@@ -7,7 +7,7 @@ def cli():
 
 
 @cli.command()
-def migrate():
+def rollover():
     pass
 
 

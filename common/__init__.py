@@ -1,7 +1,14 @@
-from common.config import init_config
+from common.config import init_config, Config
+from common.models import Todo
 
-conf = init_config()
+conf: Config = init_config()
 
 __all__ = [
+    # classes
+    'Todo',
+
+    # functions
+
+    # objects
     'conf'
 ]
