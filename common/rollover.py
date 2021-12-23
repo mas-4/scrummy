@@ -10,7 +10,8 @@ import dateutil as du
 from dateutil.parser import ParserError
 from pathlib import Path
 
-from common import conf, Todo
+from common import conf
+from common.models import Todo
 
 
 def parse_todofile(filename: str | Path) -> tuple[datetime|None, list[Todo]]:
@@ -31,7 +32,7 @@ def parse_todofile(filename: str | Path) -> tuple[datetime|None, list[Todo]]:
     is_todo: bool = False
     todos: list[Todo] = []
     is_frontmatter: bool = False
-    file_date: datetime|None = None
+    file_date: datetime | None = None
 
     for line in items:
         if line.strip() == '---':
@@ -64,3 +65,7 @@ def parse_todofile(filename: str | Path) -> tuple[datetime|None, list[Todo]]:
 def rollover_todo():
     date, todos = parse_todofile(conf.todo_file)
     pass
+
+
+if __name__ == '__main__':
+    rollover_todo()

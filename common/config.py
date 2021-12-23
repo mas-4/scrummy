@@ -79,3 +79,7 @@ def init_config() -> Config:
         except TypeError:
             pass
     return config
+
+
+# The main config object for the application.
+conf: Config = init_config()

@@ -1,13 +1,20 @@
 import re
 from dataclasses import dataclass
+from __future__ import annotations
+
 from common import conf
+
+
+class Epic:
+    items: list[Todo] = []
 
 
 @dataclass
 class Todo:
-    id: str
-    content: str
-    completed: bool
+    id: str = None
+    content: str = None
+    completed: bool = None
+    parent: Todo | None = None
 
     def __init__(self, lines):
         """
@@ -22,8 +29,11 @@ class Todo:
         """
         self.completed = bool(re.search(r'\[x]', lines[0]))
         ident = re.search(r'[\d-]+', lines[0])
-        self.id = ident.group()
-        end_of_id = ident.span()[-1]
+        if ident:
+            self.id = ident.group()
+            end_of_id = ident.span()[-1]
+        else:
+            end_of_id = len('* [ ] ')
         self.content = ''.join([lines[0][end_of_id:], *lines[1:]]).replace('\n', '')
 
     @staticmethod
@@ -36,4 +46,5 @@ class Todo:
 
     def __str__(self):
         completed = 'x' if self.completed else ' '
-        return self.split_line(f'- [{completed}] {self.id} {self.content}')
+        ident = self.id if self.id else ''
+        return self.split_line(f'- [{completed}] {ident} {self.content}')
