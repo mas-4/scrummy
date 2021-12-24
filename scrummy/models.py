@@ -3,7 +3,7 @@ from datetime import datetime
 
 import re
 
-from scrummy import conf
+from scrummy.config import conf
 from scrummy.constants import Constants
 from scrummy.utils import leading_spaces, parse_line
 

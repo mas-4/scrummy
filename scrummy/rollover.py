@@ -14,7 +14,7 @@ from pathlib import Path
 import dateutil as du
 from dateutil.parser import ParserError
 
-from scrummy import conf
+from scrummy.config import conf
 from scrummy.constants import Constants
 from scrummy.models import Todo, Epic
 
