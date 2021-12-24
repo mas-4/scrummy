@@ -15,6 +15,11 @@ setup(
     author=__version__.__author__,
     author_email=__version__.__author_email__,
     license=__version__.__license__,
+    url=__version__.__url__,
+    project_urls={
+        'Homepage': __version__.__url__,
+        'Source': __version__.__url__,
+    },
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",

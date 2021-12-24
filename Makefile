@@ -1,0 +1,7 @@
+.PHONY:
+clean:
+	rm -rf build dist scrummy.egg-info
+build:
+	python setup.py sdist bdist_wheel
+publish: build
+	twine upload dist/*
