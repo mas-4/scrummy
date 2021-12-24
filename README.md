@@ -109,23 +109,17 @@ Then a `todo.md` file will look like this:
 ```markdown
 # 2021-12-24
 
-* [ ] Restarting Pony Express DB
-* [ ] Starting stale quote
+
 * [ ] Meet with mark for setting up github
-* [ ] 104-2 Pay Probation
 * [ ] 102-0 Clean table
 * [ ] 102-56 Get used to the task flow of todo sprint/scrum
 * [ ] 101-021 Wrap chris wine and nametag
 * [ ] 101-022 Wrap mom wine and nametag
 * [ ] Switch over domain
 * [ ] Write script for migrations
-* [ ] Quitting smoking
 * [ ] check marketplace app
 * [ ] Update lock screen
 * [ ] 104-030 Activate debit card
-* [ ] 104-3 Update finances
-    * [ ] 104-30 Calculate dad cost (flatbread, alice springs, 10 tip)
-    * [ ] 104-31 Calculate chris cost (sushi)
 * [ ] 101-0 Complete gifts
     * [ ] 101-02 Wrap gifts
     * [ ] 101-021 Wrap chris wine and nametag
@@ -135,9 +129,6 @@ Then a `todo.md` file will look like this:
     * [ ] 101-03 Cards for everyone
     * [ ] 101-031 Compile list of cards
     * [ ] 101-04 Update spreadsheet
-* [ ] 101-1 Cocktails
-    * [ ] 101-10 Ask mom what she thinks for New Years Eve
-    * [ ] 101-11 Create menu
 * [ ] 102-56 Get used to the task flow of todo sprint/scrum
 ```
 
