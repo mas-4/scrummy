@@ -1,9 +1,11 @@
 import os
 from pathlib import Path
-from typing import Tuple, Any
+from typing import Any
 from dataclasses import dataclass
 
 from xdg import xdg_config_home
+
+from common.utils import parse_line
 
 config_root: str = os.path.join(xdg_config_home(), 'scrummy')
 config_file: str = os.path.join(config_root, '.scrummyrc')
@@ -17,6 +19,9 @@ class Config:
     home: Path = Path('~/documents/scrummy').expanduser()
     todo_filename: str = 'todo.md'
     max_line_length: int = 80
+    indent_size: int = 2
+    date_format: str = '%Y/%m/%d'
+    list_indicator: str = '-'
 
     def __getitem__(self, key: str) -> Any:
         return getattr(self, key)
@@ -30,31 +35,6 @@ class Config:
     @property
     def todo_file(self) -> str:
         return os.path.join(self.home, self.todo_filename)
-
-
-def parse_line(line: str) -> Tuple[str, Any] | None:
-    """
-    Parses a line from the config file.
-
-    Parameters
-    ----------
-    line: str
-
-    Returns
-    -------
-    Tuple[str, Any]
-        The key and value of the line.
-    """
-    if line.startswith('#'):
-        return None
-    if '=' not in line:
-        return None
-    key, value = line.split('=', 1)
-    if value.startswith('"') and value.endswith('"'):
-        value = value[1:-1]
-    if '~' in value:
-        value = str(Path(value).expanduser())
-    return key, value.strip()
 
 
 def init_config() -> Config:

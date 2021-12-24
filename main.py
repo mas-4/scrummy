@@ -1,4 +1,5 @@
 import click
+from common.rollover import rollover_todo
 
 
 @click.group()
@@ -8,7 +9,7 @@ def cli():
 
 @cli.command()
 def rollover():
-    pass
+    rollover_todo()
 
 
 if __name__ == '__main__':
