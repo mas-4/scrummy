@@ -5,7 +5,7 @@
 #                                          |___/
 
 __title__ = 'scrummy'
-__description__ = 'Plaintext Scrummy Todo Management'
+__description__ = 'Plaintext Scrum-like Todo and Checklist Management'
 __url__ = 'https://github.com/mas-4/scrummy'
 __version__ = '0.1.0'
 __author__ = 'Michael Sendker'
