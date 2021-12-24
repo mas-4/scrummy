@@ -163,11 +163,13 @@ class Todo:
         first_line: bool = True
         while single_line[idx:].strip():
             end = idx + conf.max_line_length - len(indentation)
+            if len(single_line[idx:end]) == end - idx:
+                end = single_line[idx:end].rfind(' ')
             if first_line:
-                split_strings.append(indentation + single_line[idx:end])
+                split_strings.append(indentation + single_line[idx:end].strip())
                 first_line = False
             else:
-                split_strings.append(indentation + ' ' * Constants.opener_length + single_line[idx:end])
+                split_strings.append(indentation + ' ' * Constants.opener_length + single_line[idx:end].strip())
             idx = end
         for child in self.children:
             split_strings.append(child.render())
