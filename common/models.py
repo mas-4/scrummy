@@ -39,17 +39,19 @@ class Epic:
             key, value = parse_line(line, sep=":")
             self.frontmatter[key] = value
 
-    def render(self, frontmatter: bool = True) -> str:
+    def render(self, render_frontmatter: bool = True, render_miscellanea: bool = True) -> str:
         lines: list[str] = []
-        if self.frontmatter and frontmatter:
+        if self.frontmatter and render_frontmatter:
             lines.append(f"---")
             for key, value in self.frontmatter.items():
                 lines.append(f"{key}: {value}")
             lines.append("---")
+            lines.append('\n')
         for todo in self.todos:
             lines.append(str(todo))
         lines.append(Constants.line_ending)
-        lines.append(self.miscellanea)
+        if render_miscellanea:
+            lines.append(self.miscellanea)
         return Constants.line_ending.join(lines)
 
     def update(self, todo: Todo, date: datetime) -> None:

@@ -118,7 +118,7 @@ def rollover_todo():
     with open(Path(conf.todo_file), 'wt') as f:
         # write the date as a top headline
         f.write('# ' + (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d') + '\n\n')
-        f.write(sprint.render(frontmatter=False))
+        f.write(sprint.render(render_frontmatter=False, render_miscellanea=False))
 
 
 if __name__ == '__main__':
