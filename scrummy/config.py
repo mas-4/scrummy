@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 from xdg import xdg_config_home
 
-from common.utils import parse_line
+from scrummy.utils import parse_line
 
 config_root: str = os.path.join(xdg_config_home(), 'scrummy')
 config_file: str = os.path.join(config_root, '.scrummyrc')

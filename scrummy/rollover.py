@@ -14,9 +14,9 @@ from pathlib import Path
 import dateutil as du
 from dateutil.parser import ParserError
 
-from common import conf
-from common.constants import Constants
-from common.models import Todo, Epic
+from scrummy import conf
+from scrummy.constants import Constants
+from scrummy.models import Todo, Epic
 
 
 def link_todo(todo: Todo, epic: Epic):

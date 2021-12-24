@@ -3,9 +3,9 @@ from datetime import datetime
 
 import re
 
-from common import conf
-from common.constants import Constants
-from common.utils import leading_spaces, parse_line
+from scrummy import conf
+from scrummy.constants import Constants
+from scrummy.utils import leading_spaces, parse_line
 
 
 class Epic:
