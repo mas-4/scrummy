@@ -35,10 +35,13 @@ class Epic:
     def __repr__(self) -> str:
         return f"<Epic {self.filepath}>"
 
+    def __iter__(self) -> Epic:
+        return self.__next__()
+
     def __next__(self) -> Todo:
-        def iterate_todo(todo):
-            yield todo
-            for child in todo.children:
+        def iterate_todo(todo_r):
+            yield todo_r
+            for child in todo_r.children:
                 yield from iterate_todo(child)
         for todo in self.todos:
             yield from iterate_todo(todo)

@@ -95,7 +95,7 @@ def parse_todofile(filename: Path) -> tuple[datetime | None, Epic]:
 
 def update_epics(epics: dict[str, Epic], sprint: Epic, date: datetime | None):
     keep = []
-    for todo in sprint.__next__():
+    for todo in sprint:
         if todo.epic_id in epics:
             epics[todo.epic_id].update(todo, date)
         if not todo.completed:
