@@ -21,4 +21,4 @@ def test_level_setup():
         shutil.rmtree(Constants.test_data_dir)
         shutil.copytree(Constants.sample_data_dir, Constants.test_data_dir)
     yield
-    #shutil.rmtree(Constants.test_data_dir)
+    shutil.rmtree(Constants.test_data_dir)
