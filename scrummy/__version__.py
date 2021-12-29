@@ -7,7 +7,7 @@
 __title__ = 'scrummy'
 __description__ = 'Plaintext Scrum-like Todo and Checklist Management'
 __url__ = 'https://github.com/mas-4/scrummy'
-__version__ = '0.1.2'
+__version__ = '0.2.0'
 __author__ = 'Michael Sendker'
 __author_email__ = 'm@standingwater.io'
 __license__ = 'MIT'
