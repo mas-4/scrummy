@@ -52,7 +52,7 @@ class Epic:
         lines.append(Constants.line_ending)
         if render_miscellanea:
             lines.append(self.miscellanea)
-        return Constants.line_ending.join(lines)
+        return Constants.line_ending.join(lines).strip()
 
     def update(self, todo: Todo, date: datetime) -> None:
         todo.date = date
