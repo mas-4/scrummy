@@ -95,8 +95,7 @@ def parse_todofile(filename: Path) -> tuple[datetime | None, Epic]:
 
 def update_epics(epics: dict[str, Epic], sprint: Epic, date: datetime | None):
     keep = []
-    # @TODO sprints need to be hierarchical-capable
-    for todo in sprint.todos:
+    for todo in sprint:
         if todo.epic_id in epics:
             epics[todo.epic_id].update(todo, date)
         if not todo.completed:
@@ -122,7 +121,10 @@ def rollover_todo(when: str = 'today'):
     for epic in epics.values():
         with open(epic.filepath, 'wt') as f:
             f.write(str(epic))
-    archive_file = os.path.join(conf.home, 'sprints', date.strftime('%Y-%m-%d') + '.md')
+    sprints_dir = os.path.join(conf.home, 'sprints')
+    if not os.path.exists(sprints_dir):
+        Path(sprints_dir).mkdir(parents=True, exist_ok=True)
+    archive_file = os.path.join(sprints_dir, date.strftime('%Y-%m-%d') + '.md')
     if os.path.exists(archive_file):
         # @TODO: make this more robust to overwriting existing files
         archive_file = os.path.join(conf.home, 'sprints', date.strftime('%Y-%m-%d') + '-1.md')

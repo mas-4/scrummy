@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 from pathlib import Path
 from typing import Any
@@ -23,6 +24,13 @@ class Config:
     date_format: str = '%Y/%m/%d'
     list_indicator: str = '-'
 
+    __instance: Config = None
+
+    def __new__(cls):
+        if cls.__instance is None:
+            cls.__instance = super(Config, cls).__new__(cls)
+        return cls.__instance
+
     def __getitem__(self, key: str) -> Any:
         return getattr(self, key)
 
@@ -37,17 +45,22 @@ class Config:
         return os.path.join(self.home, self.todo_filename)
 
 
-def init_config() -> Config:
+def init_config(file_to_read: str = config_file) -> Config:
     """
     Initializes the config object.
+
+    Parameters
+    ----------
+    file_to_read: str
+        The file to read the configuration from. Default is the scrummyrc file in $XDG_CONFIG/scrummy/.
 
     Returns
     -------
     Config
         The config object.
     """
-    if os.path.exists(config_file):
-        with open(config_file, 'rt') as f:
+    if os.path.exists(file_to_read):
+        with open(file_to_read, 'rt') as f:
             data = f.readlines()
     else:
         return Config()
