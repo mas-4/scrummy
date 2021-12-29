@@ -1,5 +1,6 @@
 from __future__ import annotations
 from datetime import datetime
+from typing import Generator
 
 import re
 
@@ -33,6 +34,14 @@ class Epic:
 
     def __repr__(self) -> str:
         return f"<Epic {self.filepath}>"
+
+    def __next__(self) -> Todo:
+        def iterate_todo(todo):
+            yield todo
+            for child in todo.children:
+                yield from iterate_todo(child)
+        for todo in self.todos:
+            yield from iterate_todo(todo)
 
     def parse_frontmatter(self, frontmatter: list[str]) -> None:
         for line in frontmatter:
