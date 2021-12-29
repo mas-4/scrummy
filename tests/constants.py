@@ -10,10 +10,10 @@ class Constants:
 
     # files
     scrummyrc: str = os.path.join(sample_data_dir, 'scrummyrc')
-    christmas_2021_scrum: str = os.path.join(test_data_dir, 'scrum', '101-christmas-2021.md')
-    smart_apartment_scrum: str = os.path.join(test_data_dir, 'scrum', '102-smart-apartment.md')
-    scrummy_scrum: str = os.path.join(test_data_dir, 'scrum', '105-scrummy.md')
+    christmas_2021_actual: str = os.path.join(test_data_dir, 'scrum', '101-christmas-2021.md')
+    smart_apartment_actual: str = os.path.join(test_data_dir, 'scrum', '102-smart-apartment.md')
+    scrummy_actual: str = os.path.join(test_data_dir, 'scrum', '105-scrummy.md')
 
-    christmas_2021_ref: str = os.path.join(ref_data_dir, 'scrum', '101-christmas-2021.md')
-    smart_apartment_ref: str = os.path.join(ref_data_dir, 'scrum', '102-smart-apartment.md')
-    scrummy_ref: str = os.path.join(ref_data_dir, 'scrum', '105-scrummy.md')
+    christmas_2021_expected: str = os.path.join(ref_data_dir, 'scrum', '101-christmas-2021.md')
+    smart_apartment_expected: str = os.path.join(ref_data_dir, 'scrum', '102-smart-apartment.md')
+    scrummy_expected: str = os.path.join(ref_data_dir, 'scrum', '105-scrummy.md')
