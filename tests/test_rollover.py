@@ -1,6 +1,7 @@
-from scrummy.rollover import rollover_todo
 from pathlib import Path
+
 from constants import Constants
+from scrummy.rollover import rollover_todo
 
 
 def compare_files(ref_path: str, target_path: str):
@@ -13,7 +14,7 @@ def compare_files(ref_path: str, target_path: str):
 
     assert len(ref) == len(target), f"Ref and produced files not the same length for {filename}"
 
-    for i, ref_line, target_line in enumerate(zip(ref, target)):
+    for i, (ref_line, target_line) in enumerate(zip(ref, target)):
         assert ref_line == target_line, f"{filename} line {i} does not match ref" \
                                         + "\n".join([ref_line, target_line])
 

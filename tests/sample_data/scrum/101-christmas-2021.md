@@ -18,7 +18,3 @@ id: 101
   - [ ] 101-05 Contact amazon about gift cards
 - [ ] 101-1 Cocktails
   - [ ] 101-11 Create menu
-
-
-
-

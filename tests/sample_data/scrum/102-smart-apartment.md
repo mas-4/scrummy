@@ -30,6 +30,3 @@ id: 102
   - [ ] 102-56 Get used to the task flow of todo sprint/scrum
   - [ ] 102-57 Revolving monthly checklist with dates and yearly
 - [ ] 102-6 Set up raspi with sound system once it comes in
-
-
-

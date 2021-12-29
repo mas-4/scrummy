@@ -27,6 +27,3 @@ id: 105
   - [ ] 105-53 Deal with hierarchical todo list
   - [ ] 105-54 System for navigating scrum list and autonumbering (tui, web?)
   - [ ] 105-55 debug excess spaces and [ insertion
-
-
-
