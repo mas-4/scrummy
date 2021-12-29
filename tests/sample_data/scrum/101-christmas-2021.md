@@ -17,7 +17,6 @@ id: 101
   - [ ] 101-04 Update spreadsheet
   - [ ] 101-05 Contact amazon about gift cards
 - [ ] 101-1 Cocktails
-  - [ ] 101-10 Ask mom what she thinks for New Years Eve
   - [ ] 101-11 Create menu
 
 

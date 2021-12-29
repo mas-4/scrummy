@@ -2,7 +2,7 @@
 
 - [ ] Starting stale quote
 - [ ] Meet with mark for setting up github
-- [x] 102-56 Get used to the task flow of todo sprint/scrum
+- [ ] 102-56 Get used to the task flow of todo sprint/scrum
 - [ ] oil change
 - [ ] 101-0 Complete gifts
     - [x] 101-01 Purchase gift for dad
