@@ -95,6 +95,7 @@ def parse_todofile(filename: Path) -> tuple[datetime | None, Epic]:
 
 def update_epics(epics: dict[str, Epic], sprint: Epic, date: datetime | None):
     keep = []
+    # @TODO sprints need to be hierarchical-capable
     for todo in sprint.todos:
         if todo.epic_id in epics:
             epics[todo.epic_id].update(todo, date)
@@ -104,7 +105,14 @@ def update_epics(epics: dict[str, Epic], sprint: Epic, date: datetime | None):
     sprint.todos_dict = {todo.id: todo for todo in sprint.todos}
 
 
-def rollover_todo():
+def parse_when(when: str) -> datetime:
+    if when.lower() == 'today':
+        return datetime.now()
+    elif when.lower() == 'tomorrow':
+        return datetime.now() + timedelta(days=1)
+
+
+def rollover_todo(when: str = 'today'):
     date, sprint = parse_todofile(Path(conf.todo_file))
     epics: dict[str, Epic] = {}
     for path in Path(os.path.join(conf.home, 'scrum')).glob('*.md'):
@@ -114,10 +122,14 @@ def rollover_todo():
     for epic in epics.values():
         with open(epic.filepath, 'wt') as f:
             f.write(str(epic))
-    shutil.move(sprint.filepath, os.path.join(conf.home, 'sprints', date.strftime('%Y-%m-%d') + '.md'))
+    archive_file = os.path.join(conf.home, 'sprints', date.strftime('%Y-%m-%d') + '.md')
+    if os.path.exists(archive_file):
+        # @TODO: make this more robust to overwriting existing files
+        archive_file = os.path.join(conf.home, 'sprints', date.strftime('%Y-%m-%d') + '-1.md')
+    shutil.move(conf.todo_file, archive_file)
     with open(Path(conf.todo_file), 'wt') as f:
         # write the date as a top headline
-        f.write('# ' + (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d') + '\n\n')
+        f.write('# ' + parse_when(when).strftime('%Y-%m-%d') + '\n\n')
         f.write(sprint.render(render_frontmatter=False, render_miscellanea=False))
 
 

@@ -8,8 +8,9 @@ def cli():
 
 
 @cli.command()
-def rollover():
-    rollover_todo()
+@click.argument('when')
+def rollover(when):
+    rollover_todo(when)
 
 
 if __name__ == '__main__':

@@ -22,10 +22,10 @@ class Epic:
         self.todos_dict = {}
         self.miscellanea = ""
 
-    def __getitem__(self, key: str) -> Todo:
+    def __getitem__(self, key: int) -> Todo:
         return self.todos_dict[key]
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: int, value: Todo):
         self.todos_dict[key] = value
 
     def __str__(self) -> str:
